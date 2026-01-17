@@ -1,24 +1,21 @@
-# AI Phase 1 — Hello LLM Script
+# AI Phase 1 Lab
 
-This project contains my first working LLM script as part of Phase 1 of my AI Engineering learning path.
+Small AI engineering exercises and tools as I build toward freelance-ready AI skills.
 
-## What this script does
+This repo currently includes:
 
-`hello_llm.py` prompts the user for a brief description and returns generated marketing copy via the OpenAI Chat Completions API.
+- `hello_llm.py`: a minimal script to test the LLM API.
+- `smart_copy.py`: a CLI-based smart copy assistant for brand-aware copywriting (e.g., God's Country).
 
-This demonstrates the basic model integration loop:
+---
 
-- local Python environment
-- secure API key loading via `.env`
-- user input → LLM request → formatted output
+## 1. Setup
 
-## Requirements
+### Python environment
 
-- Python 3.9+ (recommended 3.10 or 3.11)
-- Virtual environment (`venv` recommended)
-- OpenAI API key
+1. Clone the repo and `cd` into it.
+2. Create a virtual environment (if not already done):
 
-## Setup
-
-Clone or move into the project directory and install dependencies:
-
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
