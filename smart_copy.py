@@ -28,7 +28,7 @@ def select_brand():
     while not choice.isdigit() or not (1 <= int(choice) <= len(BRANDS)):
         choice = input("Invalid choice. Try again: ").strip()
 
-    return BRANDS[int (choice) - 1]
+    return BRANDS[int(choice) - 1]
 
 def select_content_type():
     print("\nSelect content type:\n")
@@ -55,7 +55,8 @@ Brand name: {brand['name']}
 Brand description: {brand['description']}
 Brand tone: {brand['tone']}
 
-Content type: {content_type}
+Content type: {content_type['label']}
+Content type instructions: {content_type['instructions']}
 
 Brief: {brief}
 
@@ -65,8 +66,6 @@ Number them as:
 2. ...
 3. ...
 
-For Instagram captions, keep each option under 2–3 sentences.
-If the content type is a homepage hero, produce a headline on one line and a subheadline on the next line.
 """.strip()
 
     response = client.chat.completions.create(
