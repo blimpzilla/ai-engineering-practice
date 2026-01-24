@@ -1,0 +1,19 @@
+{
+  "content_types": [
+    {
+      "id": "hero",
+      "label": "Homepage Hero (headline + subheadline)",
+      "instructions": "Return a headline on one line and a subheadline on the next line. Keep it concise and high-impact."
+    },
+    {
+      "id": "ig_caption",
+      "label": "Instagram Caption",
+      "instructions": "Keep each option under 2–3 sentences. Write for a social feed context. Strong hook first."
+    },
+    {
+      "id": "short_tagline",
+      "label": "Short Tagline",
+      "instructions": "Max 6–8 words. Punchy, memorable, brand-consistent."
+    }
+  ]
+}

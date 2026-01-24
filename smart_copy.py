@@ -1,43 +1,45 @@
 from dotenv import load_dotenv
 from openai import OpenAI
+import json
+from pathlib import Path
 import os
 
-BRANDS = {
-	"1": {
-		"name": "God's Country",
-		"description": "Clothing brand rooted in rebellion, isolation, and rugged beauty. Visual language blends Americana, biker, trailer park, and trashy motifs.",
-		"tone": "Rebelious, trashy, rugged, anti-pretentious"
-	},
-}
+BASE_DIR = Path(__file__).resolve().parent
 
-CONTENT_TYPES = {
-	"1": "Homepage hero: Heading & Subheadline",
-	"2": "Instagram caption",
-	"3": "Short tagline"
-}
+def load_json(relative_path: str) -> dict:
+    """Load a JSON file located relative to this script."""
+    path = BASE_DIR / relative_path
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+brands_config = load_json("config/brands.json")
+content_types_config = load_json("config/content_types.json")
+
+BRANDS = brands_config["brands"]
+CONTENT_TYPES = content_types_config["content_types"]
 
 
 def select_brand():
     print("\nSelect a brand:\n")
-    for key, data in BRANDS.items():
-        print(f"[{key}] {data['name']}")
+    for idx, brand in enumerate(BRANDS, start=1):
+        print(f"[{idx}] {brand['name']}")
     
     choice = input("\nEnter number: ").strip()
-    while choice not in BRANDS:
+    while not choice.isdigit() or not (1 <= int(choice) <= len(BRANDS)):
         choice = input("Invalid choice. Try again: ").strip()
 
-    return BRANDS[choice]
+    return BRANDS[int (choice) - 1]
 
 def select_content_type():
     print("\nSelect content type:\n")
-    for key, label in CONTENT_TYPES.items():
-        print(f"[{key}] {label}")
+    for idx, ct in enumerate(CONTENT_TYPES, start = 1):
+        print(f"[{idx}] {ct['label']}")
     
     choice = input("\nEnter number: ").strip()
-    while choice not in CONTENT_TYPES:
+    while not choice.isdigit() or not (1 <= int(choice) <= len(CONTENT_TYPES)):
         choice = input("Invalid choice. Try again: ").strip()
 
-    return CONTENT_TYPES[choice]
+    return CONTENT_TYPES[int(choice) - 1]
 
 
 def generate_copy(client, brand, content_type, brief):

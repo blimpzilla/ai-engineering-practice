@@ -1,0 +1,16 @@
+{
+  "brands": [
+    {
+      "id": "gods_country",
+      "name": "God's Country",
+      "description": "Streetwear brand rooted in rebellion, isolation, rugged beauty, and American frontier aesthetics. Visual language blends biker, western, and spiritual motifs.",
+      "tone": "Dark, romantic, rugged, introspective, anti-pretentious."
+    },
+    {
+      "id": "dynamik_africa",
+      "name": "Dynamik Africa",
+      "description": "Tech and innovation ecosystem focused on activating collaboration across Africa's digital economy, with emphasis on innovation, partnerships, and credible execution.",
+      "tone": "Confident, forward-looking, credible, optimistic, ecosystem-building."
+    }
+  ]
+}
