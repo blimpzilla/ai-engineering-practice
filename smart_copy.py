@@ -77,7 +77,21 @@ Number them as:
         temperature=0.9,
     )
 
-    return response.choices[0].message.content.strip()
+    #W4S3 fixed 'return response.choices[0].message.content.strip()'
+    
+    raw_text = response.choices[0].message.content.strip()
+    # Split the numbered options into a pyhton list
+    lines = raw_text.split("\n")
+    options = []
+
+    for line in lines:
+        line.strip()
+        if line.startswith(("1.", "2.", "3.")):
+            #Removing the prefix
+            option_text = line[2: ].strip()
+            options.append(option_text)
+    return options
+
 
 
 # === Main flow ===
